@@ -8,18 +8,17 @@ const cx = classNames.bind(styles);
 
 function Menu({ children, items = [] }) {
     const renderItem = () => {
-        return items.map((item, index) => (
-            <MenuItem key={index} data={item} />
-        ));
+        return items.map((item, index) => <MenuItem key={index} data={item} />);
     };
 
     return (
         <Tippy
             interactive={true}
+            delay={[0, 700]}
             placement="bottom-end"
             render={(attrs) => (
-                <div className={cx('content')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>{renderItem()}</PopperWrapper>
+                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+                    <PopperWrapper className={cx('menu-popper')}>{renderItem()}</PopperWrapper>
                 </div>
             )}
         >
