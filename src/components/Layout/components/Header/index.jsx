@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
@@ -25,6 +24,8 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -111,7 +112,6 @@ function Header() {
                 <img src={images.logo} alt="tiktok" />
                 <HeadlessTippy
                     interactive={true}
-                    visible={false}
                     render={(attrs) => (
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
@@ -142,7 +142,7 @@ function Header() {
                         <>
                             <Tippy content="Upload video" delay={[0, 200]}>
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -155,7 +155,7 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://www.cgv.vn/media/catalog/product/cache/1/image/c5f0a1eff4c394a251036189ccddaacd/l/6/l65_coral-rerelease_2009_vietnam_1sht_1_.jpg"
                                 className={cx('user-avatar')}
                                 alt="Nguyen a"
